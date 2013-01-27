@@ -1,0 +1,13 @@
+<html>
+<body>
+<script>
+  var socket = new WebSocket('ws://localhost:3000/async');
+  socket.onopen = function() {
+    console.log('connected to server');
+    socket.send('Hi Server...');
+    socket.onmessage = function() { console.log('received a message!'); };
+    socket.onclose = function() { console.log('disconnected from server'); };
+  };
+</script> 
+</body>
+</html>
